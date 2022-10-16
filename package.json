@@ -1,0 +1,14 @@
+{
+  "name": "@inventorjs/inventorjs.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "packageManager": "pnpm@7.13.2",
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo -D"
+  },
+  "keywords": [],
+  "author": "sunkeysun",
+  "license": "MIT"
+}

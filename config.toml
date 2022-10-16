@@ -1,4 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://inventorjs.github.io/'
+publishDir = 'docs'
 languageCode = 'en-us'
 title = 'Inventorjs'
 theme = "hugo-book"
