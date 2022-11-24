@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" rc # ">
+<meta name="description" content=" rc 配置文件模块 # 管理 rc 规范的配置文件，包括局部配置文件和全局配置文件
+search(dirname) # 搜索符合要求的配置文件
+dirname: &lt;string&gt; 搜索路径 load(from) # from: &lt;local|global&gt; 加载配置文件 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="rc[配置文件模块]" />
-<meta property="og:description" content=" rc # " />
+<meta property="og:description" content=" rc 配置文件模块 # 管理 rc 规范的配置文件，包括局部配置文件和全局配置文件
+search(dirname) # 搜索符合要求的配置文件
+dirname: &lt;string&gt; 搜索路径 load(from) # from: &lt;local|global&gt; 加载配置文件 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inventorjs.github.io/docs/inventor-cli/core/modules/rc/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.dbdff250baaf562ed53d222b6feae1195f7d75229aea85a628c0a9b3c10b911b.js" integrity="sha256-29/yULqvVi7VPSIrb&#43;rhGV99dSKa6oWmKMCps8ELkRs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ce8ae95d8e0997bf2b39e3481805f6830c350eccbeda7300b7d0929254931ddc.js" integrity="sha256-zorpXY4Jl78rOeNIGAX2gww1Dsy&#43;2nMAt9CSklSTHdw=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -189,7 +193,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/inventor-cli/core/modules/log/" class="">log[日志模块]</a>
+    <a href="/docs/inventor-cli/core/modules/log/" class="">log[日志处理模块]</a>
   
 
         </li>
@@ -325,7 +329,12 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#searchdirname">search(dirname)</a></li>
+    <li><a href="#loadfrom">load(from)</a></li>
+  </ul>
+</nav>
 
 
 
@@ -336,10 +345,30 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="rc">
-  rc
-  <a class="anchor" href="#rc">#</a>
+  <article class="markdown"><h1 id="rc-配置文件模块">
+  rc 配置文件模块
+  <a class="anchor" href="#rc-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e6%a8%a1%e5%9d%97">#</a>
 </h1>
+<p>管理 rc 规范的配置文件，包括局部配置文件和全局配置文件</p>
+<h2 id="searchdirname">
+  search(dirname)
+  <a class="anchor" href="#searchdirname">#</a>
+</h2>
+<p>搜索符合要求的配置文件</p>
+<blockquote>
+<ul>
+<li>dirname: &lt;string&gt; 搜索路径</li>
+</ul>
+</blockquote>
+<h2 id="loadfrom">
+  load(from)
+  <a class="anchor" href="#loadfrom">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>from: &lt;local|global&gt; 加载配置文件</li>
+</ul>
+</blockquote>
 </article>
  
       
@@ -379,7 +408,12 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#searchdirname">search(dirname)</a></li>
+    <li><a href="#loadfrom">load(from)</a></li>
+  </ul>
+</nav>
 
 
  

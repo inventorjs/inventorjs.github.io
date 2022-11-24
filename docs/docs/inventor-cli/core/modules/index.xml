@@ -43,7 +43,7 @@ enterCwd: &amp;lt;string&amp;gt; 执行上下文目录 </description>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/fs/</guid>
       <description> 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
-fs-extra 导出 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+fs-extra 导出函数 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
 dirPath: &amp;lt;string&amp;gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
 templateDir: &amp;lt;string&amp;gt; 模版目录路径 destinationDir: &amp;lt;string&amp;gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
 filePath: &amp;lt;string&amp;gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
@@ -57,16 +57,22 @@ templateFile: &amp;lt;string&amp;gt; 模版文件路径 destinationFile: &amp;lt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/git/</guid>
-      <description> git # </description>
+      <description> git 命令模块 # 封装 git 相关命令行工具
+init(options) # 初始化 git 仓库
+options: &amp;lt;Object&amp;gt; output: &amp;lt;Boolean&amp;gt; 是否输出运行结果 pipeline: &amp;lt;&amp;lsquo;stdout&amp;rsquo; | &amp;lsquo;stderr&amp;rsquo;&amp;gt; 输出文件描述符 pipe: &amp;lt;Function&amp;gt; buf: &amp;lt;Buffer&amp;gt; 处理命令输出的 buffer </description>
     </item>
     
     <item>
-      <title>log[日志模块]</title>
+      <title>log[日志处理模块]</title>
       <link>https://inventorjs.github.io/docs/inventor-cli/core/modules/log/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/log/</guid>
-      <description> log # </description>
+      <description>日志处理模块 # clear() # 清空终端输出日志信息，仅对标准终端有效
+info(msg, options) # 打印 INFO 类型日志信息
+msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.Options &amp;amp; { color: green | cyan }&amp;gt; success(msg, options) # 打印 SUCCESS 类型日志信息
+msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.Options &amp;amp; { color: green | cyan }&amp;gt; error(msg, options) # 打印 ERROR 类型日志信息
+msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.</description>
     </item>
     
     <item>
@@ -75,7 +81,15 @@ templateFile: &amp;lt;string&amp;gt; 模版文件路径 destinationFile: &amp;lt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/pm/</guid>
-      <description> pm # </description>
+      <description>pnpm 包管理模块 # 封装常用的 pnpm 包操作指令，并自动处理命令输出，可直接在插件中进行调用
+checkVersion() # 校验脚手架运行环境是否满足需求(如：pnpm: ^7.12.0)
+addPackageJsonFields(fieldsData, filePath) # 向 package.json 中添加字段
+fieldsData: &amp;lt;Object&amp;gt; 字段键值对 filePath: &amp;lt;Object&amp;gt; package.json 文件路径 getPackageJson(packageJsonPath) # 获取 package.json 文件对象数据
+packageJsonPath: &amp;lt;Object&amp;gt; package.json 文件路径 savePackageJson(savePath, packageJson) # 将对象数据保存都 package.json
+savePath: &amp;lt;Object&amp;gt; package.json 文件路径 fieldsData: &amp;lt;Object&amp;gt; package.json 数据对象 searchPackageJson(fromPath) # 向上层搜索最近的 package.json
+fromPath: &amp;lt;Object&amp;gt; package.json 搜索起始路径 root(options) # 获取 node_modules 的安装路径
+options: &amp;lt;Object&amp;gt; init(options) # 初始化 package.json 包
+options: &amp;lt;Object&amp;gt; addDependencies(packageNames, options) # 安装多个包依赖，并将依赖保存至 package.</description>
     </item>
     
     <item>
@@ -84,7 +98,9 @@ templateFile: &amp;lt;string&amp;gt; 模版文件路径 destinationFile: &amp;lt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/rc/</guid>
-      <description> rc # </description>
+      <description> rc 配置文件模块 # 管理 rc 规范的配置文件，包括局部配置文件和全局配置文件
+search(dirname) # 搜索符合要求的配置文件
+dirname: &amp;lt;string&amp;gt; 搜索路径 load(from) # from: &amp;lt;local|global&amp;gt; 加载配置文件 </description>
     </item>
     
     <item>
@@ -93,7 +109,10 @@ templateFile: &amp;lt;string&amp;gt; 模版文件路径 destinationFile: &amp;lt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/util/</guid>
-      <description> util # </description>
+      <description> 通用工具模块 # 封装常用的工具函数
+getPluginName(packageName) # 通过插件 npm 包名称，获取插件命令名称
+packageName: &amp;lt;string&amp;gt; npm 包名称 humanSize(bytes, options) # 将字节单位转换成人类可读的单位
+bytes: &amp;lt;number&amp;gt; 字节大小 options: &amp;lt;Object&amp;gt; base: &amp;lt;number&amp;gt; 基数 standard: &amp;lt;string&amp;gt; 转换标准 </description>
     </item>
     
   </channel>

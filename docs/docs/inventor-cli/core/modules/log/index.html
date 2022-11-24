@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" log # ">
+<meta name="description" content="日志处理模块 # clear() # 清空终端输出日志信息，仅对标准终端有效
+info(msg, options) # 打印 INFO 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet.Options &amp; { color: green | cyan }&gt; success(msg, options) # 打印 SUCCESS 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet.Options &amp; { color: green | cyan }&gt; error(msg, options) # 打印 ERROR 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet.">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="log[日志模块]" />
-<meta property="og:description" content=" log # " />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="log[日志处理模块]" />
+<meta property="og:description" content="日志处理模块 # clear() # 清空终端输出日志信息，仅对标准终端有效
+info(msg, options) # 打印 INFO 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet.Options &amp; { color: green | cyan }&gt; success(msg, options) # 打印 SUCCESS 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet.Options &amp; { color: green | cyan }&gt; error(msg, options) # 打印 ERROR 类型日志信息
+msg: &lt;unknown&gt; 日志信息 options: &lt;Object&gt; boxen: &lt;BoxenOptions | true&gt; dedent: &lt;boolean&gt; art: &lt;figlet." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inventorjs.github.io/docs/inventor-cli/core/modules/log/" /><meta property="article:section" content="docs" />
 
 
 
-<title>log[日志模块] | Inventorjs</title>
+<title>log[日志处理模块] | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.dbdff250baaf562ed53d222b6feae1195f7d75229aea85a628c0a9b3c10b911b.js" integrity="sha256-29/yULqvVi7VPSIrb&#43;rhGV99dSKa6oWmKMCps8ELkRs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ce8ae95d8e0997bf2b39e3481805f6830c350eccbeda7300b7d0929254931ddc.js" integrity="sha256-zorpXY4Jl78rOeNIGAX2gww1Dsy&#43;2nMAt9CSklSTHdw=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -189,7 +197,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/inventor-cli/core/modules/log/" class="active">log[日志模块]</a>
+    <a href="/docs/inventor-cli/core/modules/log/" class="active">log[日志处理模块]</a>
   
 
         </li>
@@ -311,7 +319,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>log[日志模块]</strong>
+  <strong>log[日志处理模块]</strong>
 
   <label for="toc-control">
     
@@ -325,7 +333,17 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#clear">clear()</a></li>
+    <li><a href="#infomsg-options">info(msg, options)</a></li>
+    <li><a href="#successmsg-options">success(msg, options)</a></li>
+    <li><a href="#errormsg-options">error(msg, options)</a></li>
+    <li><a href="#warnmsg-options">warn(msg, options)</a></li>
+    <li><a href="#rawmsg-options">raw(msg, options)</a></li>
+    <li><a href="#byemsg-options">bye(msg, options)</a></li>
+  </ul>
+</nav>
 
 
 
@@ -336,10 +354,117 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="log">
-  log
-  <a class="anchor" href="#log">#</a>
+  <article class="markdown"><h1 id="日志处理模块">
+  日志处理模块
+  <a class="anchor" href="#%e6%97%a5%e5%bf%97%e5%a4%84%e7%90%86%e6%a8%a1%e5%9d%97">#</a>
 </h1>
+<h2 id="clear">
+  clear()
+  <a class="anchor" href="#clear">#</a>
+</h2>
+<p>清空终端输出日志信息，仅对标准终端有效</p>
+<h2 id="infomsg-options">
+  info(msg, options)
+  <a class="anchor" href="#infomsg-options">#</a>
+</h2>
+<p>打印 INFO 类型日志信息</p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="successmsg-options">
+  success(msg, options)
+  <a class="anchor" href="#successmsg-options">#</a>
+</h2>
+<p>打印 SUCCESS 类型日志信息</p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="errormsg-options">
+  error(msg, options)
+  <a class="anchor" href="#errormsg-options">#</a>
+</h2>
+<p>打印 ERROR 类型日志信息</p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="warnmsg-options">
+  warn(msg, options)
+  <a class="anchor" href="#warnmsg-options">#</a>
+</h2>
+<p>打印 warn 类型日志信息</p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="rawmsg-options">
+  raw(msg, options)
+  <a class="anchor" href="#rawmsg-options">#</a>
+</h2>
+<p>将日志转化为字符串，并输出原始日志信息</p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="byemsg-options">
+  bye(msg, options)
+  <a class="anchor" href="#byemsg-options">#</a>
+</h2>
+<p>打印 bye 类型日志信息，<strong>并退出当前进程</strong></p>
+<blockquote>
+<ul>
+<li>msg: &lt;unknown&gt; 日志信息</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>boxen: &lt;BoxenOptions | true&gt;</li>
+<li>dedent: &lt;boolean&gt;</li>
+<li>art: &lt;figlet.Options &amp; { color: green | cyan }&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 </article>
  
       
@@ -379,7 +504,17 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#clear">clear()</a></li>
+    <li><a href="#infomsg-options">info(msg, options)</a></li>
+    <li><a href="#successmsg-options">success(msg, options)</a></li>
+    <li><a href="#errormsg-options">error(msg, options)</a></li>
+    <li><a href="#warnmsg-options">warn(msg, options)</a></li>
+    <li><a href="#rawmsg-options">raw(msg, options)</a></li>
+    <li><a href="#byemsg-options">bye(msg, options)</a></li>
+  </ul>
+</nav>
 
 
  

@@ -6,7 +6,7 @@ type: docs
 # 文件处理模块
 导出 fs-extra 常用函数，并封装常用的文件操作功能
 
-## fs-extra 导出
+## fs-extra 导出函数
 > * readdir
 > * readFile
 > * writeFile
