@@ -3,4 +3,4 @@ title: plugin-plugin[插件管理]
 type: docs
 ---
 
-# inventor-cli 插件管理插件
+# 脚手架内置插件管理插件

@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" fs # ">
+<meta name="description" content=" 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
+fs-extra 导出 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+dirPath: &lt;string&gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
+templateDir: &lt;string&gt; 模版目录路径 destinationDir: &lt;string&gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
+filePath: &lt;string&gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
+templateDir: &lt;string&gt; 模版文件夹路径 destinationDir: &lt;string&gt; 目标文件夹路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 renderTemplate(templateFile, destinationFile, options) # 渲染单个模版文件到目标路径
+templateFile: &lt;string&gt; 模版文件路径 destinationFile: &lt;string&gt; 目标文件路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="fs[文件处理模块]" />
-<meta property="og:description" content=" fs # " />
+<meta property="og:description" content=" 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
+fs-extra 导出 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+dirPath: &lt;string&gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
+templateDir: &lt;string&gt; 模版目录路径 destinationDir: &lt;string&gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
+filePath: &lt;string&gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
+templateDir: &lt;string&gt; 模版文件夹路径 destinationDir: &lt;string&gt; 目标文件夹路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 renderTemplate(templateFile, destinationFile, options) # 渲染单个模版文件到目标路径
+templateFile: &lt;string&gt; 模版文件路径 destinationFile: &lt;string&gt; 目标文件路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://inventorjs.github.io/docs/inventor-cli/core/modules/fs/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +29,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.d4f8fee9a2922db1a05c103a3d58a9c92cd80971195b6f67dc4dd9ea5e86080f.js" integrity="sha256-1Pj&#43;6aKSLbGgXBA6PVipySzYCXEZW29n3E3Z6l6GCA8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.dbdff250baaf562ed53d222b6feae1195f7d75229aea85a628c0a9b3c10b911b.js" integrity="sha256-29/yULqvVi7VPSIrb&#43;rhGV99dSKa6oWmKMCps8ELkRs=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -325,7 +337,16 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fs-extra-导出">fs-extra 导出</a></li>
+    <li><a href="#getallfilesdirpath">getAllFiles(dirPath)</a></li>
+    <li><a href="#getexiststemplatefilestemplatedir-destinationdir">getExistsTemplateFiles(templateDir, destinationDir)</a></li>
+    <li><a href="#existsfilepath">exists(filePath)</a></li>
+    <li><a href="#rendertemplatetemplatedir-destinationdir-options">renderTemplate(templateDir, destinationDir, options)</a></li>
+    <li><a href="#rendertemplatetemplatefile-destinationfile-options">renderTemplate(templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
 
 
 
@@ -336,10 +357,86 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="fs">
-  fs
-  <a class="anchor" href="#fs">#</a>
+  <article class="markdown"><h1 id="文件处理模块">
+  文件处理模块
+  <a class="anchor" href="#%e6%96%87%e4%bb%b6%e5%a4%84%e7%90%86%e6%a8%a1%e5%9d%97">#</a>
 </h1>
+<p>导出 fs-extra 常用函数，并封装常用的文件操作功能</p>
+<h2 id="fs-extra-导出">
+  fs-extra 导出
+  <a class="anchor" href="#fs-extra-%e5%af%bc%e5%87%ba">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>readdir</li>
+<li>readFile</li>
+<li>writeFile</li>
+<li>stat</li>
+</ul>
+</blockquote>
+<h2 id="getallfilesdirpath">
+  getAllFiles(dirPath)
+  <a class="anchor" href="#getallfilesdirpath">#</a>
+</h2>
+<p>获取目标路径下所有文件路径(深层次递归获取)</p>
+<blockquote>
+<ul>
+<li>dirPath: &lt;string&gt; 目标目录路径</li>
+</ul>
+</blockquote>
+<h2 id="getexiststemplatefilestemplatedir-destinationdir">
+  getExistsTemplateFiles(templateDir, destinationDir)
+  <a class="anchor" href="#getexiststemplatefilestemplatedir-destinationdir">#</a>
+</h2>
+<p>获取已存在目标文件的模版文件列表</p>
+<blockquote>
+<ul>
+<li>templateDir: &lt;string&gt; 模版目录路径</li>
+<li>destinationDir: &lt;string&gt; 目标目录路径</li>
+</ul>
+</blockquote>
+<h2 id="existsfilepath">
+  exists(filePath)
+  <a class="anchor" href="#existsfilepath">#</a>
+</h2>
+<p>判断目标路径是否存在</p>
+<blockquote>
+<ul>
+<li>filePath: &lt;string&gt; 目标路径</li>
+</ul>
+</blockquote>
+<h2 id="rendertemplatetemplatedir-destinationdir-options">
+  renderTemplate(templateDir, destinationDir, options)
+  <a class="anchor" href="#rendertemplatetemplatedir-destinationdir-options">#</a>
+</h2>
+<p>将模版文件夹所有文件渲染到目标文件夹</p>
+<blockquote>
+<ul>
+<li>templateDir: &lt;string&gt; 模版文件夹路径</li>
+<li>destinationDir: &lt;string&gt; 目标文件夹路径</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="rendertemplatetemplatefile-destinationfile-options">
+  renderTemplate(templateFile, destinationFile, options)
+  <a class="anchor" href="#rendertemplatetemplatefile-destinationfile-options">#</a>
+</h2>
+<p>渲染单个模版文件到目标路径</p>
+<blockquote>
+<ul>
+<li>templateFile: &lt;string&gt; 模版文件路径</li>
+<li>destinationFile: &lt;string&gt; 目标文件路径</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 </article>
  
       
@@ -379,7 +476,16 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fs-extra-导出">fs-extra 导出</a></li>
+    <li><a href="#getallfilesdirpath">getAllFiles(dirPath)</a></li>
+    <li><a href="#getexiststemplatefilestemplatedir-destinationdir">getExistsTemplateFiles(templateDir, destinationDir)</a></li>
+    <li><a href="#existsfilepath">exists(filePath)</a></li>
+    <li><a href="#rendertemplatetemplatedir-destinationdir-options">renderTemplate(templateDir, destinationDir, options)</a></li>
+    <li><a href="#rendertemplatetemplatefile-destinationfile-options">renderTemplate(templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
 
 
  

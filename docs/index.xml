@@ -12,7 +12,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/plugin/</guid>
-      <description> Plugin # </description>
+      <description>插件基础抽象类(Plugin) # 插件实例基础抽象类，封装常用的脚手架插件开发相关功能，插件需要继承该抽象类以实现插件功能(其中 abtract 方法和属性为子插件必须实现的)，插件实例通过脚手架框架内部自动创建，插件开发者无需手动初始化插件实例，插件实例和方法在子插件种皆可通过 this 获取。
+new Plugin(params) # 插件构造函数为脚手架框架内部调用，插件开发者无需创建插件实例
+params: entryPath: &amp;lt;string&amp;gt; 插件入口路径 this.entryPath # Type: &amp;lt;string&amp;gt; 插件入口路径 this.templatePath # Type: &amp;lt;string&amp;gt; 插件模版路径 this.actionPath # Type: &amp;lt;string&amp;gt; action 文件夹路径 this.prompt(questions) # 实现命令行可交互问答，对 inquirer 核心功能封装
+questions: &amp;lt;Object[]&amp;gt; 问题数组 type: &amp;lt;checkbox|text&amp;gt; 问题类型 name: &amp;lt;string&amp;gt; 问题键名 message: &amp;lt;string&amp;gt; 问题描述 choices: &amp;lt;Object[]&amp;gt; 问题可选项 name: &amp;lt;string&amp;gt; 选项名称 value: &amp;lt;string&amp;gt; 选项值 this.install(options) # 在上下文目录执行 pnpm install 进行包安装
+options: &amp;lt;Object&amp;gt; 调用选项 this.addDependencies(packageNames, options) # 在上下文目录批量添加依赖包</description>
     </item>
     
     <item>
@@ -21,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/cli/</guid>
-      <description> cli # </description>
+      <description> @inventorjs/cli 脚手架入口 # </description>
     </item>
     
     <item>
@@ -30,7 +34,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/cmd/</guid>
-      <description> cmd # </description>
+      <description> 命令行程序调用模块 # 封装 execa 调用方法，提供对返回数据 buffer 进行处理的能力
+exec(bin, args, options) # 调用命令行程序
+bin: &amp;lt;string&amp;gt; 执行命令行程序 args: &amp;lt;string[]&amp;gt; 命令行程序参数 options: &amp;lt;Object&amp;gt; output: &amp;lt;Boolean&amp;gt; 是否输出运行结果 pipeline: &amp;lt;&amp;lsquo;stdout&amp;rsquo; | &amp;lsquo;stderr&amp;rsquo;&amp;gt; 输出文件描述符 pipe: &amp;lt;Function&amp;gt; buf: &amp;lt;Buffer&amp;gt; 处理命令输出的 buffer </description>
     </item>
     
     <item>
@@ -39,7 +45,17 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/env/</guid>
-      <description> env # </description>
+      <description> 环境管理模块 # 主要提供脚手架当前执行环境的一些相关信息，管理脚手架执行上下文
+isTTY() # 判断当前是否是标准终端环境，如在子进程中(pnpm exec -r), 则返回false
+pwd() # 获取当前所在路径
+homedir() # 获取当前用户家目录
+context() # 获取安装脚手架上下文(global|local)
+username() # 获取当前用户名
+uid() # 获取当前用户 uid
+dirname(metaUrl) # 获取文件所在目录(主要用于转换 import.meta.url)
+metaUrl: &amp;lt;string&amp;gt; 模块的 import.meta.url 值 filename(metaUrl) { # 获取文件绝对路径(主要用于转换 import.meta.url)
+metaUrl: &amp;lt;string&amp;gt; 模块的 import.meta.url 值 changeCwd(enterCwd) # 改变当前命令执行上下文目录
+enterCwd: &amp;lt;string&amp;gt; 执行上下文目录 </description>
     </item>
     
     <item>
@@ -48,7 +64,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/core/modules/fs/</guid>
-      <description> fs # </description>
+      <description> 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
+fs-extra 导出 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+dirPath: &amp;lt;string&amp;gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
+templateDir: &amp;lt;string&amp;gt; 模版目录路径 destinationDir: &amp;lt;string&amp;gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
+filePath: &amp;lt;string&amp;gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
+templateDir: &amp;lt;string&amp;gt; 模版文件夹路径 destinationDir: &amp;lt;string&amp;gt; 目标文件夹路径 options: &amp;lt;Object&amp;gt; 模版渲染选项 data: &amp;lt;Object&amp;gt; 模版数据 renderTemplate(templateFile, destinationFile, options) # 渲染单个模版文件到目标路径
+templateFile: &amp;lt;string&amp;gt; 模版文件路径 destinationFile: &amp;lt;string&amp;gt; 目标文件路径 options: &amp;lt;Object&amp;gt; 模版渲染选项 data: &amp;lt;Object&amp;gt; 模版数据 </description>
     </item>
     
     <item>
@@ -75,7 +97,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/plugin-app/</guid>
-      <description> inventor-cli 内置应用管理插件 # </description>
+      <description> 脚手架内置应用管理插件 # </description>
     </item>
     
     <item>
@@ -84,7 +106,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://inventorjs.github.io/docs/inventor-cli/plugin-plugin/</guid>
-      <description> inventor-cli 插件管理插件 # </description>
+      <description> 脚手架内置插件管理插件 # </description>
     </item>
     
     <item>
