@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" 脚手架内置应用管理插件 # 用户快速创建和开发应用，提供多种快速开发模版，提供开发、构建能力
+支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言) # library: 库应用 react-vite: react &#43; vite 应用 react-webpack: react &#43; webpack 应用 react-webpack-js: react &#43; webpack &#43; js 应用(不推荐使用) 使用方式 # 初始化应用 # inventor app init 未现有应用添加工具(如 Husky、Eslint、Commitlint) # inventor app addon ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inventorjs.github.io/tags/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="plugin-app[应用插件]" />
+<meta property="og:description" content=" 脚手架内置应用管理插件 # 用户快速创建和开发应用，提供多种快速开发模版，提供开发、构建能力
+支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言) # library: 库应用 react-vite: react &#43; vite 应用 react-webpack: react &#43; webpack 应用 react-webpack-js: react &#43; webpack &#43; js 应用(不推荐使用) 使用方式 # 初始化应用 # inventor app init 未现有应用添加工具(如 Husky、Eslint、Commitlint) # inventor app addon " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/plugin-app/" /><meta property="article:section" content="docs" />
 
-<title>Tags | Inventorjs</title>
+
+
+<title>plugin-app[应用插件] | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/tags/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -234,7 +237,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/plugin-app/" class="">plugin-app[应用插件]</a>
+    <a href="/docs/cli/plugin-app/" class="active">plugin-app[应用插件]</a>
   
 
         </li>
@@ -294,7 +297,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tags</strong>
+  <strong>plugin-app[应用插件]</strong>
 
   <label for="toc-control">
     
@@ -307,29 +310,23 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li>
       <ul>
-      
+        <li><a href="#支持的应用类型应用模版如无-js-后缀则默认使用-ts-语言">支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言)</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
+    <li><a href="#使用方式">使用方式</a>
       <ul>
-      
+        <li><a href="#初始化应用">初始化应用</a></li>
+        <li><a href="#未现有应用添加工具如-huskyeslintcommitlint">未现有应用添加工具(如 Husky、Eslint、Commitlint)</a></li>
       </ul>
     </li>
-    
-  
   </ul>
 </nav>
+
 
 
   </aside>
@@ -339,9 +336,38 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="脚手架内置应用管理插件">
+  脚手架内置应用管理插件
+  <a class="anchor" href="#%e8%84%9a%e6%89%8b%e6%9e%b6%e5%86%85%e7%bd%ae%e5%ba%94%e7%94%a8%e7%ae%a1%e7%90%86%e6%8f%92%e4%bb%b6">#</a>
+</h1>
+<p>用户快速创建和开发应用，提供多种快速开发模版，提供开发、构建能力</p>
+<h3 id="支持的应用类型应用模版如无-js-后缀则默认使用-ts-语言">
+  支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言)
+  <a class="anchor" href="#%e6%94%af%e6%8c%81%e7%9a%84%e5%ba%94%e7%94%a8%e7%b1%bb%e5%9e%8b%e5%ba%94%e7%94%a8%e6%a8%a1%e7%89%88%e5%a6%82%e6%97%a0-js-%e5%90%8e%e7%bc%80%e5%88%99%e9%bb%98%e8%ae%a4%e4%bd%bf%e7%94%a8-ts-%e8%af%ad%e8%a8%80">#</a>
+</h3>
+<blockquote>
+<ul>
+<li>library: 库应用</li>
+<li>react-vite: react + vite 应用</li>
+<li>react-webpack: react + webpack 应用</li>
+<li>react-webpack-js: react + webpack + js 应用(不推荐使用)</li>
+</ul>
+</blockquote>
+<h2 id="使用方式">
+  使用方式
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e5%bc%8f">#</a>
+</h2>
+<h3 id="初始化应用">
+  初始化应用
+  <a class="anchor" href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%ba%94%e7%94%a8">#</a>
+</h3>
+<pre tabindex="0"><code>  inventor app init
+</code></pre><h3 id="未现有应用添加工具如-huskyeslintcommitlint">
+  未现有应用添加工具(如 Husky、Eslint、Commitlint)
+  <a class="anchor" href="#%e6%9c%aa%e7%8e%b0%e6%9c%89%e5%ba%94%e7%94%a8%e6%b7%bb%e5%8a%a0%e5%b7%a5%e5%85%b7%e5%a6%82-huskyeslintcommitlint">#</a>
+</h3>
+<pre tabindex="0"><code>  inventor app addon
+</code></pre></article>
  
       
 
@@ -366,6 +392,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -375,29 +405,23 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li>
       <ul>
-      
+        <li><a href="#支持的应用类型应用模版如无-js-后缀则默认使用-ts-语言">支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言)</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
+    <li><a href="#使用方式">使用方式</a>
       <ul>
-      
+        <li><a href="#初始化应用">初始化应用</a></li>
+        <li><a href="#未现有应用添加工具如-huskyeslintcommitlint">未现有应用添加工具(如 Husky、Eslint、Commitlint)</a></li>
       </ul>
     </li>
-    
-  
   </ul>
 </nav>
+
 
  
       </div>

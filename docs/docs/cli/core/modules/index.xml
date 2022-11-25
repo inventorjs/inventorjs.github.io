@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on Inventorjs</title>
-    <link>https://inventorjs.github.io/</link>
-    <description>Recent content in Introduction on Inventorjs</description>
+    <title>modules[模块] on Inventorjs</title>
+    <link>https://inventorjs.github.io/docs/cli/core/modules/</link>
+    <description>Recent content in modules[模块] on Inventorjs</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://inventorjs.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Plugin[插件基础类]</title>
-      <link>https://inventorjs.github.io/docs/cli/core/plugin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://inventorjs.github.io/docs/cli/core/plugin/</guid>
-      <description>插件基础抽象类(Plugin) # 插件实例基础抽象类，封装常用的脚手架插件开发相关功能，插件需要继承该抽象类以实现插件功能(其中 abtract 方法和属性为子插件必须实现的)，插件实例通过脚手架框架内部自动创建，插件开发者无需手动初始化插件实例，插件实例和方法在子插件种皆可通过 this 获取。
-new Plugin(params) # 插件构造函数为脚手架框架内部调用，插件开发者无需创建插件实例
-params: entryPath: &amp;lt;string&amp;gt; 插件入口路径 this.entryPath # Type: &amp;lt;string&amp;gt; 插件入口路径 this.templatePath # Type: &amp;lt;string&amp;gt; 插件模版路径 this.actionPath # Type: &amp;lt;string&amp;gt; action 文件夹路径 this.prompt(questions) # 实现命令行可交互问答，对 inquirer 核心功能封装
-questions: &amp;lt;Object[]&amp;gt; 问题数组 type: &amp;lt;checkbox|text&amp;gt; 问题类型 name: &amp;lt;string&amp;gt; 问题键名 message: &amp;lt;string&amp;gt; 问题描述 choices: &amp;lt;Object[]&amp;gt; 问题可选项 name: &amp;lt;string&amp;gt; 选项名称 value: &amp;lt;string&amp;gt; 选项值 this.install(options) # 在上下文目录执行 pnpm install 进行包安装
-options: &amp;lt;Object&amp;gt; 调用选项 this.addDependencies(packageNames, options) # 在上下文目录批量添加依赖包</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://inventorjs.github.io/docs/cli/core/modules/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>cmd[命令处理模块]</title>
       <link>https://inventorjs.github.io/docs/cli/core/modules/cmd/</link>
@@ -86,26 +73,6 @@ info(msg, options) # 打印 INFO 类型日志信息
 msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.Options &amp;amp; { color: green | cyan }&amp;gt; success(msg, options) # 打印 SUCCESS 类型日志信息
 msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.Options &amp;amp; { color: green | cyan }&amp;gt; error(msg, options) # 打印 ERROR 类型日志信息
 msg: &amp;lt;unknown&amp;gt; 日志信息 options: &amp;lt;Object&amp;gt; boxen: &amp;lt;BoxenOptions | true&amp;gt; dedent: &amp;lt;boolean&amp;gt; art: &amp;lt;figlet.</description>
-    </item>
-    
-    <item>
-      <title>plugin-app[应用插件]</title>
-      <link>https://inventorjs.github.io/docs/cli/plugin-app/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://inventorjs.github.io/docs/cli/plugin-app/</guid>
-      <description> 脚手架内置应用管理插件 # 用户快速创建和开发应用，提供多种快速开发模版，提供开发、构建能力
-支持的应用类型(应用模版如无 js 后缀，则默认使用 ts 语言) # library: 库应用 react-vite: react + vite 应用 react-webpack: react + webpack 应用 react-webpack-js: react + webpack + js 应用(不推荐使用) 使用方式 # 初始化应用 # inventor app init 未现有应用添加工具(如 Husky、Eslint、Commitlint) # inventor app addon </description>
-    </item>
-    
-    <item>
-      <title>plugin-plugin[插件管理]</title>
-      <link>https://inventorjs.github.io/docs/cli/plugin-plugin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://inventorjs.github.io/docs/cli/plugin-plugin/</guid>
-      <description> 脚手架内置插件管理插件 # 用于快速开发 inventor 脚手架插件，提供快速开发模版以及开发调试能力
-使用方式 # 快速初始化插件 # inventor plugin init 快速创建 action # inventor plugin action </description>
     </item>
     
     <item>

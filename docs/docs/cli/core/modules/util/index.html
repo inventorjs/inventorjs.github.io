@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" 通用工具模块 # 封装常用的工具函数
+getPluginName(packageName) # 通过插件 npm 包名称，获取插件命令名称
+packageName: &lt;string&gt; npm 包名称 humanSize(bytes, options) # 将字节单位转换成人类可读的单位
+bytes: &lt;number&gt; 字节大小 options: &lt;Object&gt; base: &lt;number&gt; 基数 standard: &lt;string&gt; 转换标准 ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inventorjs.github.io/tags/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="util[通用工具模块]" />
+<meta property="og:description" content=" 通用工具模块 # 封装常用的工具函数
+getPluginName(packageName) # 通过插件 npm 包名称，获取插件命令名称
+packageName: &lt;string&gt; npm 包名称 humanSize(bytes, options) # 将字节单位转换成人类可读的单位
+bytes: &lt;number&gt; 字节大小 options: &lt;Object&gt; base: &lt;number&gt; 基数 standard: &lt;string&gt; 转换标准 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/core/modules/util/" /><meta property="article:section" content="docs" />
 
-<title>Tags | Inventorjs</title>
+
+
+<title>util[通用工具模块] | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/tags/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -211,7 +218,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/util/" class="">util[通用工具模块]</a>
+    <a href="/docs/cli/core/modules/util/" class="active">util[通用工具模块]</a>
   
 
         </li>
@@ -294,7 +301,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tags</strong>
+  <strong>util[通用工具模块]</strong>
 
   <label for="toc-control">
     
@@ -307,29 +314,14 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#getpluginnamepackagename">getPluginName(packageName)</a></li>
+    <li><a href="#humansizebytes-options">humanSize(bytes, options)</a></li>
   </ul>
 </nav>
+
 
 
   </aside>
@@ -339,9 +331,38 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="通用工具模块">
+  通用工具模块
+  <a class="anchor" href="#%e9%80%9a%e7%94%a8%e5%b7%a5%e5%85%b7%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<p>封装常用的工具函数</p>
+<h2 id="getpluginnamepackagename">
+  getPluginName(packageName)
+  <a class="anchor" href="#getpluginnamepackagename">#</a>
+</h2>
+<p>通过插件 npm 包名称，获取插件命令名称</p>
+<blockquote>
+<ul>
+<li>packageName: &lt;string&gt; npm 包名称</li>
+</ul>
+</blockquote>
+<h2 id="humansizebytes-options">
+  humanSize(bytes, options)
+  <a class="anchor" href="#humansizebytes-options">#</a>
+</h2>
+<p>将字节单位转换成人类可读的单位</p>
+<blockquote>
+<ul>
+<li>bytes: &lt;number&gt; 字节大小</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>base: &lt;number&gt; 基数</li>
+<li>standard: &lt;string&gt; 转换标准</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</article>
  
       
 
@@ -366,6 +387,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -375,29 +400,14 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#getpluginnamepackagename">getPluginName(packageName)</a></li>
+    <li><a href="#humansizebytes-options">humanSize(bytes, options)</a></li>
   </ul>
 </nav>
+
 
  
       </div>

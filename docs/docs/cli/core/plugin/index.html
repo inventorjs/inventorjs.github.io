@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="插件基础抽象类(Plugin) # 插件实例基础抽象类，封装常用的脚手架插件开发相关功能，插件需要继承该抽象类以实现插件功能(其中 abtract 方法和属性为子插件必须实现的)，插件实例通过脚手架框架内部自动创建，插件开发者无需手动初始化插件实例，插件实例和方法在子插件种皆可通过 this 获取。
+new Plugin(params) # 插件构造函数为脚手架框架内部调用，插件开发者无需创建插件实例
+params: entryPath: &lt;string&gt; 插件入口路径 this.entryPath # Type: &lt;string&gt; 插件入口路径 this.templatePath # Type: &lt;string&gt; 插件模版路径 this.actionPath # Type: &lt;string&gt; action 文件夹路径 this.prompt(questions) # 实现命令行可交互问答，对 inquirer 核心功能封装
+questions: &lt;Object[]&gt; 问题数组 type: &lt;checkbox|text&gt; 问题类型 name: &lt;string&gt; 问题键名 message: &lt;string&gt; 问题描述 choices: &lt;Object[]&gt; 问题可选项 name: &lt;string&gt; 选项名称 value: &lt;string&gt; 选项值 this.install(options) # 在上下文目录执行 pnpm install 进行包安装
+options: &lt;Object&gt; 调用选项 this.addDependencies(packageNames, options) # 在上下文目录批量添加依赖包">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Plugin[插件基础类]" />
+<meta property="og:description" content="插件基础抽象类(Plugin) # 插件实例基础抽象类，封装常用的脚手架插件开发相关功能，插件需要继承该抽象类以实现插件功能(其中 abtract 方法和属性为子插件必须实现的)，插件实例通过脚手架框架内部自动创建，插件开发者无需手动初始化插件实例，插件实例和方法在子插件种皆可通过 this 获取。
+new Plugin(params) # 插件构造函数为脚手架框架内部调用，插件开发者无需创建插件实例
+params: entryPath: &lt;string&gt; 插件入口路径 this.entryPath # Type: &lt;string&gt; 插件入口路径 this.templatePath # Type: &lt;string&gt; 插件模版路径 this.actionPath # Type: &lt;string&gt; action 文件夹路径 this.prompt(questions) # 实现命令行可交互问答，对 inquirer 核心功能封装
+questions: &lt;Object[]&gt; 问题数组 type: &lt;checkbox|text&gt; 问题类型 name: &lt;string&gt; 问题键名 message: &lt;string&gt; 问题描述 choices: &lt;Object[]&gt; 问题可选项 name: &lt;string&gt; 选项名称 value: &lt;string&gt; 选项值 this.install(options) # 在上下文目录执行 pnpm install 进行包安装
+options: &lt;Object&gt; 调用选项 this.addDependencies(packageNames, options) # 在上下文目录批量添加依赖包" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/core/plugin/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Plugin[插件基础类] | Inventorjs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Inventorjs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/cli/" class="">cli</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>core[核心模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/plugin/" class="active">Plugin[插件基础类]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>modules[模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/cmd/" class="">cmd[命令处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/env/" class="">env[环境管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/fs/" class="">fs[文件处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/git/" class="">git[git命令模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/log/" class="">log[日志处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/pm/" class="">pm[包管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/rc/" class="">rc[配置文件模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/util/" class="">util[通用工具模块]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-app/" class="">plugin-app[应用插件]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-plugin/" class="">plugin-plugin[插件管理]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Plugin[插件基础类]</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#new-pluginparams">new Plugin(params)</a></li>
+    <li><a href="#thisentrypath">this.entryPath</a></li>
+    <li><a href="#thistemplatepath">this.templatePath</a></li>
+    <li><a href="#thisactionpath">this.actionPath</a></li>
+    <li><a href="#thispromptquestions">this.prompt(questions)</a></li>
+    <li><a href="#thisinstalloptions">this.install(options)</a></li>
+    <li><a href="#thisadddependenciespackagenames-options">this.addDependencies(packageNames, options)</a></li>
+    <li><a href="#thisadddevdependenciespackagenames-options">this.addDevDependencies(packageNames, options)</a></li>
+    <li><a href="#thisremovedependenciespackagenames-options">this.removeDependencies(packageNames, options)</a></li>
+    <li><a href="#thisremovedevdependenciespackagenames-options">this.removeDevDependencies(packageNames, options)</a></li>
+    <li><a href="#thisgetpackagejsonfrompath--thisentrypath">this.getPackageJson(fromPath = this.entryPath)</a></li>
+    <li><a href="#thisaddpackagejsonfieldsfieldsdata-filepath">this.addPackageJsonFields(fieldsData, filePath)</a></li>
+    <li><a href="#thissavepackagejsonfilepath-packagejson">this.savePackageJson(filePath, packageJson)</a></li>
+    <li><a href="#thisgetpackagenamefrompath--thisentrypath">this.getPackageName(fromPath = this.entryPath)</a></li>
+    <li><a href="#thisgetpluginnamefrompath--thisentrypath">this.getPluginName(frompath = this.entryPath)</a></li>
+    <li><a href="#thisconfirmoverwritespaths">this.confirmOverwrites(paths)</a></li>
+    <li><a href="#thisrendertemplatetemplatename-destinationname-options">this.renderTemplate(templateName, destinationName, options)</a></li>
+    <li><a href="#thisrendertemplatefiletemplatename-templatefile-destinationfile-options">this.renderTemplateFile(templateName, templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="插件基础抽象类plugin">
+  插件基础抽象类(Plugin)
+  <a class="anchor" href="#%e6%8f%92%e4%bb%b6%e5%9f%ba%e7%a1%80%e6%8a%bd%e8%b1%a1%e7%b1%bbplugin">#</a>
+</h1>
+<p>插件实例基础抽象类，封装常用的脚手架插件开发相关功能，插件需要继承该抽象类以实现插件功能(其中 abtract 方法和属性为子插件必须实现的)，插件实例通过脚手架框架内部自动创建，插件开发者无需手动初始化插件实例，插件实例和方法在子插件种皆可通过 this 获取。</p>
+<h2 id="new-pluginparams">
+  new Plugin(params)
+  <a class="anchor" href="#new-pluginparams">#</a>
+</h2>
+<p>插件构造函数为脚手架框架内部调用，插件开发者无需创建插件实例</p>
+<ul>
+<li>params:</li>
+</ul>
+<blockquote>
+<ul>
+<li>entryPath: &lt;string&gt; 插件入口路径</li>
+</ul>
+</blockquote>
+<h2 id="thisentrypath">
+  this.entryPath
+  <a class="anchor" href="#thisentrypath">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>Type: &lt;string&gt; 插件入口路径</li>
+</ul>
+</blockquote>
+<h2 id="thistemplatepath">
+  this.templatePath
+  <a class="anchor" href="#thistemplatepath">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>Type: &lt;string&gt; 插件模版路径</li>
+</ul>
+</blockquote>
+<h2 id="thisactionpath">
+  this.actionPath
+  <a class="anchor" href="#thisactionpath">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>Type: &lt;string&gt; action 文件夹路径</li>
+</ul>
+</blockquote>
+<h2 id="thispromptquestions">
+  this.prompt(questions)
+  <a class="anchor" href="#thispromptquestions">#</a>
+</h2>
+<p>实现命令行可交互问答，对 inquirer 核心功能封装</p>
+<blockquote>
+<ul>
+<li>questions: &lt;Object[]&gt; 问题数组
+<ul>
+<li>type: &lt;checkbox|text&gt; 问题类型</li>
+<li>name: &lt;string&gt; 问题键名</li>
+<li>message: &lt;string&gt; 问题描述</li>
+<li>choices: &lt;Object[]&gt; 问题可选项
+<ul>
+<li>name: &lt;string&gt; 选项名称</li>
+<li>value: &lt;string&gt; 选项值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="thisinstalloptions">
+  this.install(options)
+  <a class="anchor" href="#thisinstalloptions">#</a>
+</h2>
+<p>在上下文目录执行 pnpm install 进行包安装</p>
+<blockquote>
+<ul>
+<li>options: &lt;Object&gt; 调用选项</li>
+</ul>
+</blockquote>
+<h2 id="thisadddependenciespackagenames-options">
+  this.addDependencies(packageNames, options)
+  <a class="anchor" href="#thisadddependenciespackagenames-options">#</a>
+</h2>
+<p>在上下文目录批量添加依赖包</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 依赖包名称数组(如：axios@1.0.0)</li>
+</ul>
+</blockquote>
+<h2 id="thisadddevdependenciespackagenames-options">
+  this.addDevDependencies(packageNames, options)
+  <a class="anchor" href="#thisadddevdependenciespackagenames-options">#</a>
+</h2>
+<p>在上下文目录批量添加开发依赖包</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 依赖包名称数组(如：axios@1.0.0)</li>
+</ul>
+</blockquote>
+<h2 id="thisremovedependenciespackagenames-options">
+  this.removeDependencies(packageNames, options)
+  <a class="anchor" href="#thisremovedependenciespackagenames-options">#</a>
+</h2>
+<p>在上下文目录批量删除依赖包</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 依赖包名称数组(如：axios@1.0.0)</li>
+</ul>
+</blockquote>
+<h2 id="thisremovedevdependenciespackagenames-options">
+  this.removeDevDependencies(packageNames, options)
+  <a class="anchor" href="#thisremovedevdependenciespackagenames-options">#</a>
+</h2>
+<p>在上下文目录批量删除开发依赖包</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 依赖包名称数组(如：axios@1.0.0)</li>
+</ul>
+</blockquote>
+<h2 id="thisgetpackagejsonfrompath--thisentrypath">
+  this.getPackageJson(fromPath = this.entryPath)
+  <a class="anchor" href="#thisgetpackagejsonfrompath--thisentrypath">#</a>
+</h2>
+<p>从 fromPath 开始查找 package.json 文件直到根目录，并返回 json 对象</p>
+<blockquote>
+<ul>
+<li>fromPath: &lt;string&gt; 查找起始路径</li>
+</ul>
+</blockquote>
+<h2 id="thisaddpackagejsonfieldsfieldsdata-filepath">
+  this.addPackageJsonFields(fieldsData, filePath)
+  <a class="anchor" href="#thisaddpackagejsonfieldsfieldsdata-filepath">#</a>
+</h2>
+<p>向 package.json 添加字段</p>
+<blockquote>
+<ul>
+<li>fieldsData: &lt;Object&gt; 字段数据对象</li>
+<li>filePath: &lt;string&gt; package.json 文件路径</li>
+</ul>
+</blockquote>
+<h2 id="thissavepackagejsonfilepath-packagejson">
+  this.savePackageJson(filePath, packageJson)
+  <a class="anchor" href="#thissavepackagejsonfilepath-packagejson">#</a>
+</h2>
+<p>保存 packageJson 对象到 package.json 文件</p>
+<blockquote>
+<ul>
+<li>filePath: &lt;string&gt; package.json 文件路径</li>
+<li>packageJson: &lt;Object&gt; packageJson 数据对象</li>
+</ul>
+</blockquote>
+<h2 id="thisgetpackagenamefrompath--thisentrypath">
+  this.getPackageName(fromPath = this.entryPath)
+  <a class="anchor" href="#thisgetpackagenamefrompath--thisentrypath">#</a>
+</h2>
+<p>获取指定路径的 npm 包名称</p>
+<blockquote>
+<ul>
+<li>fromPath: &lt;string&gt; 查找起始路径</li>
+</ul>
+</blockquote>
+<h2 id="thisgetpluginnamefrompath--thisentrypath">
+  this.getPluginName(frompath = this.entryPath)
+  <a class="anchor" href="#thisgetpluginnamefrompath--thisentrypath">#</a>
+</h2>
+<p>获取指定路径的 inventor-plugin 名称，即命令行执行名称</p>
+<blockquote>
+<ul>
+<li>fromPath: &lt;string&gt; 查找起始路径</li>
+</ul>
+</blockquote>
+<h2 id="thisconfirmoverwritespaths">
+  this.confirmOverwrites(paths)
+  <a class="anchor" href="#thisconfirmoverwritespaths">#</a>
+</h2>
+<p>询问是否覆盖指定路径的文件</p>
+<blockquote>
+<ul>
+<li>paths: &lt;string[]&gt; 文件路径列表</li>
+</ul>
+</blockquote>
+<h2 id="thisrendertemplatetemplatename-destinationname-options">
+  this.renderTemplate(templateName, destinationName, options)
+  <a class="anchor" href="#thisrendertemplatetemplatename-destinationname-options">#</a>
+</h2>
+<p>渲染指定模版文件夹到目标文件夹</p>
+<blockquote>
+<ul>
+<li>templateName: &lt;string&gt; 模版名称(即在 templates 的子文件夹名称)</li>
+<li>destinationName: &lt;string&gt; 目标文件夹名称</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+<li>overwrites: &lt;Boolean&gt; 是否覆盖已存在目标文件</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="thisrendertemplatefiletemplatename-templatefile-destinationfile-options">
+  this.renderTemplateFile(templateName, templateFile, destinationFile, options)
+  <a class="anchor" href="#thisrendertemplatefiletemplatename-templatefile-destinationfile-options">#</a>
+</h2>
+<p>渲染指定模版文件到目标文件</p>
+<blockquote>
+<ul>
+<li>templateName: &lt;string&gt; 模版名称(即在 templates 的子文件夹名称)</li>
+<li>templateFile: &lt;string&gt; 模版目录下的文件，相对模版路径</li>
+<li>destinationFile: &lt;string&gt; 目标文件名称</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+<li>overwrites: &lt;Boolean&gt; 是否覆盖已存在目标文件</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#new-pluginparams">new Plugin(params)</a></li>
+    <li><a href="#thisentrypath">this.entryPath</a></li>
+    <li><a href="#thistemplatepath">this.templatePath</a></li>
+    <li><a href="#thisactionpath">this.actionPath</a></li>
+    <li><a href="#thispromptquestions">this.prompt(questions)</a></li>
+    <li><a href="#thisinstalloptions">this.install(options)</a></li>
+    <li><a href="#thisadddependenciespackagenames-options">this.addDependencies(packageNames, options)</a></li>
+    <li><a href="#thisadddevdependenciespackagenames-options">this.addDevDependencies(packageNames, options)</a></li>
+    <li><a href="#thisremovedependenciespackagenames-options">this.removeDependencies(packageNames, options)</a></li>
+    <li><a href="#thisremovedevdependenciespackagenames-options">this.removeDevDependencies(packageNames, options)</a></li>
+    <li><a href="#thisgetpackagejsonfrompath--thisentrypath">this.getPackageJson(fromPath = this.entryPath)</a></li>
+    <li><a href="#thisaddpackagejsonfieldsfieldsdata-filepath">this.addPackageJsonFields(fieldsData, filePath)</a></li>
+    <li><a href="#thissavepackagejsonfilepath-packagejson">this.savePackageJson(filePath, packageJson)</a></li>
+    <li><a href="#thisgetpackagenamefrompath--thisentrypath">this.getPackageName(fromPath = this.entryPath)</a></li>
+    <li><a href="#thisgetpluginnamefrompath--thisentrypath">this.getPluginName(frompath = this.entryPath)</a></li>
+    <li><a href="#thisconfirmoverwritespaths">this.confirmOverwrites(paths)</a></li>
+    <li><a href="#thisrendertemplatetemplatename-destinationname-options">this.renderTemplate(templateName, destinationName, options)</a></li>
+    <li><a href="#thisrendertemplatefiletemplatename-templatefile-destinationfile-options">this.renderTemplateFile(templateName, templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
+fs-extra 导出函数 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+dirPath: &lt;string&gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
+templateDir: &lt;string&gt; 模版目录路径 destinationDir: &lt;string&gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
+filePath: &lt;string&gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
+templateDir: &lt;string&gt; 模版文件夹路径 destinationDir: &lt;string&gt; 目标文件夹路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 renderTemplate(templateFile, destinationFile, options) # 渲染单个模版文件到目标路径
+templateFile: &lt;string&gt; 模版文件路径 destinationFile: &lt;string&gt; 目标文件路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 ">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="fs[文件处理模块]" />
+<meta property="og:description" content=" 文件处理模块 # 导出 fs-extra 常用函数，并封装常用的文件操作功能
+fs-extra 导出函数 # readdir readFile writeFile stat getAllFiles(dirPath) # 获取目标路径下所有文件路径(深层次递归获取)
+dirPath: &lt;string&gt; 目标目录路径 getExistsTemplateFiles(templateDir, destinationDir) # 获取已存在目标文件的模版文件列表
+templateDir: &lt;string&gt; 模版目录路径 destinationDir: &lt;string&gt; 目标目录路径 exists(filePath) # 判断目标路径是否存在
+filePath: &lt;string&gt; 目标路径 renderTemplate(templateDir, destinationDir, options) # 将模版文件夹所有文件渲染到目标文件夹
+templateDir: &lt;string&gt; 模版文件夹路径 destinationDir: &lt;string&gt; 目标文件夹路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 renderTemplate(templateFile, destinationFile, options) # 渲染单个模版文件到目标路径
+templateFile: &lt;string&gt; 模版文件路径 destinationFile: &lt;string&gt; 目标文件路径 options: &lt;Object&gt; 模版渲染选项 data: &lt;Object&gt; 模版数据 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/core/modules/fs/" /><meta property="article:section" content="docs" />
+
+
+
+<title>fs[文件处理模块] | Inventorjs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Inventorjs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/cli/" class="">cli</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>core[核心模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/plugin/" class="">Plugin[插件基础类]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>modules[模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/cmd/" class="">cmd[命令处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/env/" class="">env[环境管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/fs/" class="active">fs[文件处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/git/" class="">git[git命令模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/log/" class="">log[日志处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/pm/" class="">pm[包管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/rc/" class="">rc[配置文件模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/util/" class="">util[通用工具模块]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-app/" class="">plugin-app[应用插件]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-plugin/" class="">plugin-plugin[插件管理]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>fs[文件处理模块]</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fs-extra-导出函数">fs-extra 导出函数</a></li>
+    <li><a href="#getallfilesdirpath">getAllFiles(dirPath)</a></li>
+    <li><a href="#getexiststemplatefilestemplatedir-destinationdir">getExistsTemplateFiles(templateDir, destinationDir)</a></li>
+    <li><a href="#existsfilepath">exists(filePath)</a></li>
+    <li><a href="#rendertemplatetemplatedir-destinationdir-options">renderTemplate(templateDir, destinationDir, options)</a></li>
+    <li><a href="#rendertemplatetemplatefile-destinationfile-options">renderTemplate(templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="文件处理模块">
+  文件处理模块
+  <a class="anchor" href="#%e6%96%87%e4%bb%b6%e5%a4%84%e7%90%86%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<p>导出 fs-extra 常用函数，并封装常用的文件操作功能</p>
+<h2 id="fs-extra-导出函数">
+  fs-extra 导出函数
+  <a class="anchor" href="#fs-extra-%e5%af%bc%e5%87%ba%e5%87%bd%e6%95%b0">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>readdir</li>
+<li>readFile</li>
+<li>writeFile</li>
+<li>stat</li>
+</ul>
+</blockquote>
+<h2 id="getallfilesdirpath">
+  getAllFiles(dirPath)
+  <a class="anchor" href="#getallfilesdirpath">#</a>
+</h2>
+<p>获取目标路径下所有文件路径(深层次递归获取)</p>
+<blockquote>
+<ul>
+<li>dirPath: &lt;string&gt; 目标目录路径</li>
+</ul>
+</blockquote>
+<h2 id="getexiststemplatefilestemplatedir-destinationdir">
+  getExistsTemplateFiles(templateDir, destinationDir)
+  <a class="anchor" href="#getexiststemplatefilestemplatedir-destinationdir">#</a>
+</h2>
+<p>获取已存在目标文件的模版文件列表</p>
+<blockquote>
+<ul>
+<li>templateDir: &lt;string&gt; 模版目录路径</li>
+<li>destinationDir: &lt;string&gt; 目标目录路径</li>
+</ul>
+</blockquote>
+<h2 id="existsfilepath">
+  exists(filePath)
+  <a class="anchor" href="#existsfilepath">#</a>
+</h2>
+<p>判断目标路径是否存在</p>
+<blockquote>
+<ul>
+<li>filePath: &lt;string&gt; 目标路径</li>
+</ul>
+</blockquote>
+<h2 id="rendertemplatetemplatedir-destinationdir-options">
+  renderTemplate(templateDir, destinationDir, options)
+  <a class="anchor" href="#rendertemplatetemplatedir-destinationdir-options">#</a>
+</h2>
+<p>将模版文件夹所有文件渲染到目标文件夹</p>
+<blockquote>
+<ul>
+<li>templateDir: &lt;string&gt; 模版文件夹路径</li>
+<li>destinationDir: &lt;string&gt; 目标文件夹路径</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="rendertemplatetemplatefile-destinationfile-options">
+  renderTemplate(templateFile, destinationFile, options)
+  <a class="anchor" href="#rendertemplatetemplatefile-destinationfile-options">#</a>
+</h2>
+<p>渲染单个模版文件到目标路径</p>
+<blockquote>
+<ul>
+<li>templateFile: &lt;string&gt; 模版文件路径</li>
+<li>destinationFile: &lt;string&gt; 目标文件路径</li>
+<li>options: &lt;Object&gt; 模版渲染选项
+<ul>
+<li>data: &lt;Object&gt; 模版数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fs-extra-导出函数">fs-extra 导出函数</a></li>
+    <li><a href="#getallfilesdirpath">getAllFiles(dirPath)</a></li>
+    <li><a href="#getexiststemplatefilestemplatedir-destinationdir">getExistsTemplateFiles(templateDir, destinationDir)</a></li>
+    <li><a href="#existsfilepath">exists(filePath)</a></li>
+    <li><a href="#rendertemplatetemplatedir-destinationdir-options">renderTemplate(templateDir, destinationDir, options)</a></li>
+    <li><a href="#rendertemplatetemplatefile-destinationfile-options">renderTemplate(templateFile, destinationFile, options)</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

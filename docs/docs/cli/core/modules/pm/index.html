@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="pnpm 包管理模块 # 封装常用的 pnpm 包操作指令，并自动处理命令输出，可直接在插件中进行调用
+checkVersion() # 校验脚手架运行环境是否满足需求(如：pnpm: ^7.12.0)
+addPackageJsonFields(fieldsData, filePath) # 向 package.json 中添加字段
+fieldsData: &lt;Object&gt; 字段键值对 filePath: &lt;Object&gt; package.json 文件路径 getPackageJson(packageJsonPath) # 获取 package.json 文件对象数据
+packageJsonPath: &lt;Object&gt; package.json 文件路径 savePackageJson(savePath, packageJson) # 将对象数据保存都 package.json
+savePath: &lt;Object&gt; package.json 文件路径 fieldsData: &lt;Object&gt; package.json 数据对象 searchPackageJson(fromPath) # 向上层搜索最近的 package.json
+fromPath: &lt;Object&gt; package.json 搜索起始路径 root(options) # 获取 node_modules 的安装路径
+options: &lt;Object&gt; init(options) # 初始化 package.json 包
+options: &lt;Object&gt; addDependencies(packageNames, options) # 安装多个包依赖，并将依赖保存至 package.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="pm[包管理模块]" />
+<meta property="og:description" content="pnpm 包管理模块 # 封装常用的 pnpm 包操作指令，并自动处理命令输出，可直接在插件中进行调用
+checkVersion() # 校验脚手架运行环境是否满足需求(如：pnpm: ^7.12.0)
+addPackageJsonFields(fieldsData, filePath) # 向 package.json 中添加字段
+fieldsData: &lt;Object&gt; 字段键值对 filePath: &lt;Object&gt; package.json 文件路径 getPackageJson(packageJsonPath) # 获取 package.json 文件对象数据
+packageJsonPath: &lt;Object&gt; package.json 文件路径 savePackageJson(savePath, packageJson) # 将对象数据保存都 package.json
+savePath: &lt;Object&gt; package.json 文件路径 fieldsData: &lt;Object&gt; package.json 数据对象 searchPackageJson(fromPath) # 向上层搜索最近的 package.json
+fromPath: &lt;Object&gt; package.json 搜索起始路径 root(options) # 获取 node_modules 的安装路径
+options: &lt;Object&gt; init(options) # 初始化 package.json 包
+options: &lt;Object&gt; addDependencies(packageNames, options) # 安装多个包依赖，并将依赖保存至 package." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/core/modules/pm/" /><meta property="article:section" content="docs" />
+
+
+
+<title>pm[包管理模块] | Inventorjs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Inventorjs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/cli/" class="">cli</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>core[核心模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/plugin/" class="">Plugin[插件基础类]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>modules[模块]</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/cmd/" class="">cmd[命令处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/env/" class="">env[环境管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/fs/" class="">fs[文件处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/git/" class="">git[git命令模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/log/" class="">log[日志处理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/pm/" class="active">pm[包管理模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/rc/" class="">rc[配置文件模块]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/core/modules/util/" class="">util[通用工具模块]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-app/" class="">plugin-app[应用插件]</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/cli/plugin-plugin/" class="">plugin-plugin[插件管理]</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>pm[包管理模块]</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#checkversion">checkVersion()</a></li>
+    <li><a href="#addpackagejsonfieldsfieldsdata-filepath">addPackageJsonFields(fieldsData, filePath)</a></li>
+    <li><a href="#getpackagejsonpackagejsonpath">getPackageJson(packageJsonPath)</a></li>
+    <li><a href="#savepackagejsonsavepath-packagejson">savePackageJson(savePath, packageJson)</a></li>
+    <li><a href="#searchpackagejsonfrompath">searchPackageJson(fromPath)</a></li>
+    <li><a href="#rootoptions">root(options)</a></li>
+    <li><a href="#initoptions">init(options)</a></li>
+    <li><a href="#adddependenciespackagenames-options">addDependencies(packageNames, options)</a></li>
+    <li><a href="#adddevdependenciespackagenames-options">addDevDependencies(packageNames, options)</a></li>
+    <li><a href="#removedependenciespackagenames-options">removeDependencies(packageNames, options)</a></li>
+    <li><a href="#removedevdependenciespackagenames-options">removeDevDependencies(packageNames, options)</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="pnpm-包管理模块">
+  pnpm 包管理模块
+  <a class="anchor" href="#pnpm-%e5%8c%85%e7%ae%a1%e7%90%86%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<p>封装常用的 pnpm 包操作指令，并自动处理命令输出，可直接在插件中进行调用</p>
+<h2 id="checkversion">
+  checkVersion()
+  <a class="anchor" href="#checkversion">#</a>
+</h2>
+<p>校验脚手架运行环境是否满足需求(如：pnpm: ^7.12.0)</p>
+<h2 id="addpackagejsonfieldsfieldsdata-filepath">
+  addPackageJsonFields(fieldsData, filePath)
+  <a class="anchor" href="#addpackagejsonfieldsfieldsdata-filepath">#</a>
+</h2>
+<p>向 package.json 中添加字段</p>
+<blockquote>
+<ul>
+<li>fieldsData: &lt;Object&gt; 字段键值对</li>
+<li>filePath: &lt;Object&gt; package.json 文件路径</li>
+</ul>
+</blockquote>
+<h2 id="getpackagejsonpackagejsonpath">
+  getPackageJson(packageJsonPath)
+  <a class="anchor" href="#getpackagejsonpackagejsonpath">#</a>
+</h2>
+<p>获取 package.json 文件对象数据</p>
+<blockquote>
+<ul>
+<li>packageJsonPath: &lt;Object&gt; package.json 文件路径</li>
+</ul>
+</blockquote>
+<h2 id="savepackagejsonsavepath-packagejson">
+  savePackageJson(savePath, packageJson)
+  <a class="anchor" href="#savepackagejsonsavepath-packagejson">#</a>
+</h2>
+<p>将对象数据保存都 package.json</p>
+<blockquote>
+<ul>
+<li>savePath: &lt;Object&gt; package.json 文件路径</li>
+<li>fieldsData: &lt;Object&gt; package.json 数据对象</li>
+</ul>
+</blockquote>
+<h2 id="searchpackagejsonfrompath">
+  searchPackageJson(fromPath)
+  <a class="anchor" href="#searchpackagejsonfrompath">#</a>
+</h2>
+<p>向上层搜索最近的 package.json</p>
+<blockquote>
+<ul>
+<li>fromPath: &lt;Object&gt; package.json 搜索起始路径</li>
+</ul>
+</blockquote>
+<h2 id="rootoptions">
+  root(options)
+  <a class="anchor" href="#rootoptions">#</a>
+</h2>
+<p>获取 node_modules 的安装路径</p>
+<blockquote>
+<ul>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+<h2 id="initoptions">
+  init(options)
+  <a class="anchor" href="#initoptions">#</a>
+</h2>
+<p>初始化 package.json 包</p>
+<blockquote>
+<ul>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+<h2 id="adddependenciespackagenames-options">
+  addDependencies(packageNames, options)
+  <a class="anchor" href="#adddependenciespackagenames-options">#</a>
+</h2>
+<p>安装多个包依赖，并将依赖保存至 package.json</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 包名@版本列表</li>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+<h2 id="adddevdependenciespackagenames-options">
+  addDevDependencies(packageNames, options)
+  <a class="anchor" href="#adddevdependenciespackagenames-options">#</a>
+</h2>
+<p>安装多个开发包依赖，并将依赖保存至 package.json</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 包名@版本列表</li>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+<h2 id="removedependenciespackagenames-options">
+  removeDependencies(packageNames, options)
+  <a class="anchor" href="#removedependenciespackagenames-options">#</a>
+</h2>
+<p>移除多个包依赖，并从 package.json 中移除</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 包名@版本列表</li>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+<h2 id="removedevdependenciespackagenames-options">
+  removeDevDependencies(packageNames, options)
+  <a class="anchor" href="#removedevdependenciespackagenames-options">#</a>
+</h2>
+<p>移除多个开发包依赖，并从 package.json 中移除</p>
+<blockquote>
+<ul>
+<li>packageNames: &lt;string[]&gt; 包名@版本列表</li>
+<li>options: &lt;Object&gt;</li>
+</ul>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#checkversion">checkVersion()</a></li>
+    <li><a href="#addpackagejsonfieldsfieldsdata-filepath">addPackageJsonFields(fieldsData, filePath)</a></li>
+    <li><a href="#getpackagejsonpackagejsonpath">getPackageJson(packageJsonPath)</a></li>
+    <li><a href="#savepackagejsonsavepath-packagejson">savePackageJson(savePath, packageJson)</a></li>
+    <li><a href="#searchpackagejsonfrompath">searchPackageJson(fromPath)</a></li>
+    <li><a href="#rootoptions">root(options)</a></li>
+    <li><a href="#initoptions">init(options)</a></li>
+    <li><a href="#adddependenciespackagenames-options">addDependencies(packageNames, options)</a></li>
+    <li><a href="#adddevdependenciespackagenames-options">addDevDependencies(packageNames, options)</a></li>
+    <li><a href="#removedependenciespackagenames-options">removeDependencies(packageNames, options)</a></li>
+    <li><a href="#removedevdependenciespackagenames-options">removeDevDependencies(packageNames, options)</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

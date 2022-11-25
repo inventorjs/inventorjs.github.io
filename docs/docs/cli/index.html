@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" @inventorjs/cli # 前端脚手架框架，采用插件架构设计，内置脚手架核心及其他常用插件，实现开箱即用，开发者可使用框架提供的脚手架插件快速开发插件。
+前置说明 # 脚手架强制使用 pnpm(当前最先进的包管理工具) 作为包管理工具, 使用前请确保已全局安装 pnpm 安装 # 由于脚手架采用插件话设计(参考 @babel/cli)，所以将脚手架核心功能抽离至 @inventorjs/core 中，各个插件采用 peerDependencies 的方式引用，来确保 @inventorjs/core 版本的一致性
+pnpm add @inventorjs/core @inventorjs/cli -g 使用 # // 查看可用的插件命令 inventor -h // 初始化 inventor 插件模版 inventor plugin init ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Tags" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="cli" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://inventorjs.github.io/tags/" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/" />
 
-<title>Tags | Inventorjs</title>
+<title>cli | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/tags/index.xml" title="Inventorjs" />
+<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/docs/cli/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -68,7 +70,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/" class="">cli</a>
+    <a href="/docs/cli/" class="active">cli</a>
   
 
           
@@ -294,7 +296,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tags</strong>
+  <strong>cli</strong>
 
   <label for="toc-control">
     
@@ -307,29 +309,15 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#前置说明">前置说明</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#使用">使用</a></li>
   </ul>
 </nav>
+
 
 
   </aside>
@@ -339,9 +327,35 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="inventorjscli">
+  @inventorjs/cli
+  <a class="anchor" href="#inventorjscli">#</a>
+</h1>
+<p>前端脚手架框架，采用插件架构设计，内置脚手架核心及其他常用插件，实现开箱即用，开发者可使用框架提供的脚手架插件快速开发插件。</p>
+<h2 id="前置说明">
+  前置说明
+  <a class="anchor" href="#%e5%89%8d%e7%bd%ae%e8%af%b4%e6%98%8e">#</a>
+</h2>
+<blockquote>
+<ul>
+<li>脚手架强制使用 <a href="https://pnpm.io/">pnpm</a>(当前最先进的包管理工具) 作为包管理工具, 使用前请确保已全局安装 pnpm</li>
+</ul>
+</blockquote>
+<h2 id="安装">
+  安装
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
+</h2>
+<p>由于脚手架采用插件话设计(参考 @babel/cli)，所以将脚手架核心功能抽离至 @inventorjs/core 中，各个插件采用 peerDependencies 的方式引用，来确保 @inventorjs/core 版本的一致性</p>
+<pre tabindex="0"><code>  pnpm add @inventorjs/core @inventorjs/cli -g
+</code></pre><h2 id="使用">
+  使用
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
+</h2>
+<pre tabindex="0"><code>  // 查看可用的插件命令
+  inventor -h
+  // 初始化 inventor 插件模版
+  inventor plugin init
+</code></pre></article>
  
       
 
@@ -366,6 +380,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -375,29 +393,15 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#前置说明">前置说明</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#使用">使用</a></li>
   </ul>
 </nav>
+
 
  
       </div>

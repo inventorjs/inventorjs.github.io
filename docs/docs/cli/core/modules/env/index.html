@@ -3,20 +3,41 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" 环境管理模块 # 主要提供脚手架当前执行环境的一些相关信息，管理脚手架执行上下文
+isTTY() # 判断当前是否是标准终端环境，如在子进程中(pnpm exec -r), 则返回false
+pwd() # 获取当前所在路径
+homedir() # 获取当前用户家目录
+context() # 获取安装脚手架上下文(global|local)
+username() # 获取当前用户名
+uid() # 获取当前用户 uid
+dirname(metaUrl) # 获取文件所在目录(主要用于转换 import.meta.url)
+metaUrl: &lt;string&gt; 模块的 import.meta.url 值 filename(metaUrl) { # 获取文件绝对路径(主要用于转换 import.meta.url)
+metaUrl: &lt;string&gt; 模块的 import.meta.url 值 changeCwd(enterCwd) # 改变当前命令执行上下文目录
+enterCwd: &lt;string&gt; 执行上下文目录 ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inventorjs.github.io/tags/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="env[环境管理模块]" />
+<meta property="og:description" content=" 环境管理模块 # 主要提供脚手架当前执行环境的一些相关信息，管理脚手架执行上下文
+isTTY() # 判断当前是否是标准终端环境，如在子进程中(pnpm exec -r), 则返回false
+pwd() # 获取当前所在路径
+homedir() # 获取当前用户家目录
+context() # 获取安装脚手架上下文(global|local)
+username() # 获取当前用户名
+uid() # 获取当前用户 uid
+dirname(metaUrl) # 获取文件所在目录(主要用于转换 import.meta.url)
+metaUrl: &lt;string&gt; 模块的 import.meta.url 值 filename(metaUrl) { # 获取文件绝对路径(主要用于转换 import.meta.url)
+metaUrl: &lt;string&gt; 模块的 import.meta.url 值 changeCwd(enterCwd) # 改变当前命令执行上下文目录
+enterCwd: &lt;string&gt; 执行上下文目录 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/core/modules/env/" /><meta property="article:section" content="docs" />
 
-<title>Tags | Inventorjs</title>
+
+
+<title>env[环境管理模块] | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/tags/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -133,7 +154,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/env/" class="">env[环境管理模块]</a>
+    <a href="/docs/cli/core/modules/env/" class="active">env[环境管理模块]</a>
   
 
         </li>
@@ -294,7 +315,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tags</strong>
+  <strong>env[环境管理模块]</strong>
 
   <label for="toc-control">
     
@@ -307,29 +328,21 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#istty">isTTY()</a></li>
+    <li><a href="#pwd">pwd()</a></li>
+    <li><a href="#homedir">homedir()</a></li>
+    <li><a href="#context">context()</a></li>
+    <li><a href="#username">username()</a></li>
+    <li><a href="#uid">uid()</a></li>
+    <li><a href="#dirnamemetaurl">dirname(metaUrl)</a></li>
+    <li><a href="#filenamemetaurl-">filename(metaUrl) {</a></li>
+    <li><a href="#changecwdentercwd">changeCwd(enterCwd)</a></li>
   </ul>
 </nav>
+
 
 
   </aside>
@@ -339,9 +352,72 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="环境管理模块">
+  环境管理模块
+  <a class="anchor" href="#%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<p>主要提供脚手架当前执行环境的一些相关信息，管理脚手架执行上下文</p>
+<h2 id="istty">
+  isTTY()
+  <a class="anchor" href="#istty">#</a>
+</h2>
+<p>判断当前是否是标准终端环境，如在子进程中(pnpm exec -r), 则返回false</p>
+<h2 id="pwd">
+  pwd()
+  <a class="anchor" href="#pwd">#</a>
+</h2>
+<p>获取当前所在路径</p>
+<h2 id="homedir">
+  homedir()
+  <a class="anchor" href="#homedir">#</a>
+</h2>
+<p>获取当前用户家目录</p>
+<h2 id="context">
+  context()
+  <a class="anchor" href="#context">#</a>
+</h2>
+<p>获取安装脚手架上下文(global|local)</p>
+<h2 id="username">
+  username()
+  <a class="anchor" href="#username">#</a>
+</h2>
+<p>获取当前用户名</p>
+<h2 id="uid">
+  uid()
+  <a class="anchor" href="#uid">#</a>
+</h2>
+<p>获取当前用户 uid</p>
+<h2 id="dirnamemetaurl">
+  dirname(metaUrl)
+  <a class="anchor" href="#dirnamemetaurl">#</a>
+</h2>
+<p>获取文件所在目录(主要用于转换 import.meta.url)</p>
+<blockquote>
+<ul>
+<li>metaUrl: &lt;string&gt; 模块的 import.meta.url 值</li>
+</ul>
+</blockquote>
+<h2 id="filenamemetaurl-">
+  filename(metaUrl) {
+  <a class="anchor" href="#filenamemetaurl-">#</a>
+</h2>
+<p>获取文件绝对路径(主要用于转换 import.meta.url)</p>
+<blockquote>
+<ul>
+<li>metaUrl: &lt;string&gt; 模块的 import.meta.url 值</li>
+</ul>
+</blockquote>
+<h2 id="changecwdentercwd">
+  changeCwd(enterCwd)
+  <a class="anchor" href="#changecwdentercwd">#</a>
+</h2>
+<p>改变当前命令执行上下文目录</p>
+<blockquote>
+<ul>
+<li>enterCwd: &lt;string&gt; 执行上下文目录</li>
+</ul>
+</blockquote>
+</article>
  
       
 
@@ -366,6 +442,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -375,29 +455,21 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
+    <li><a href="#istty">isTTY()</a></li>
+    <li><a href="#pwd">pwd()</a></li>
+    <li><a href="#homedir">homedir()</a></li>
+    <li><a href="#context">context()</a></li>
+    <li><a href="#username">username()</a></li>
+    <li><a href="#uid">uid()</a></li>
+    <li><a href="#dirnamemetaurl">dirname(metaUrl)</a></li>
+    <li><a href="#filenamemetaurl-">filename(metaUrl) {</a></li>
+    <li><a href="#changecwdentercwd">changeCwd(enterCwd)</a></li>
   </ul>
 </nav>
+
 
  
       </div>
