@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>core[核心模块] on Inventorjs</title>
+    <title>cli-core[脚手架核心] on Inventorjs</title>
     <link>https://inventorjs.github.io/docs/cli/cli-core/</link>
-    <description>Recent content in core[核心模块] on Inventorjs</description>
+    <description>Recent content in cli-core[脚手架核心] on Inventorjs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://inventorjs.github.io/docs/cli/cli-core/index.xml" rel="self" type="application/rss+xml" />
     <item>

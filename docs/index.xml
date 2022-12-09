@@ -76,7 +76,7 @@ options: &amp;lt;Object&amp;gt; output: &amp;lt;Boolean&amp;gt; 是否输出运�
     </item>
     
     <item>
-      <title>inventor-plugin-app[应用插件]</title>
+      <title>inventor-plugin-app[应用管理]</title>
       <link>https://inventorjs.github.io/docs/cli/inventor-plugin-app/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

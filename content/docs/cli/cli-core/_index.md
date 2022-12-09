@@ -1,4 +1,4 @@
 ---
-title: core[核心模块]
+title: cli-core[脚手架核心]
 type: docs
 ---
