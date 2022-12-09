@@ -11,4 +11,4 @@ type: docs
 > * dirname: \<string\> 搜索路径
 
 ## load(from)
-> * from: \<local|global\> 加载配置文件
+> * from: \<'local'|'global'\> 加载配置文件

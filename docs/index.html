@@ -4,9 +4,10 @@
 	<meta name="generator" content="Hugo 0.105.0-DEV">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" Inventorjs # @inventorjs/cli # 前端脚手架框架，采用插件架构设计，内置脚手架核心及其他常用插件，实现开箱即用，开发者可使用框架提供的脚手架插件快速开发插件。
-前置说明 # 脚手架强制使用 pnpm(当前最先进的包管理工具) 作为包管理工具, 使用前请确保已全局安装 pnpm 安装 # 由于脚手架采用插件话设计(参考 @babel/cli)，所以将脚手架核心功能抽离至 @inventorjs/core 中，各个插件采用 peerDependencies 的方式引用，来确保 @inventorjs/core 版本的一致性
-pnpm add @inventorjs/core @inventorjs/cli -g 使用 # // 查看可用的插件命令 inventor -h // 初始化 inventor 插件模版 inventor plugin init ">
+<meta name="description" content="Inventorjs # @inventorjs/cli # 前端脚手架框架，采用插件架构设计，内置脚手架核心及其他常用插件，实现开箱即用，开发者可使用框架提供的脚手架插件快速开发插件。
+前置说明 # corepack 作为 node 新版本的包管理工具，用于管理(yarn, pnpm)包工具，强烈建议开启 corepack corepack enable 脚手架强制使用 pnpm(当前最先进的包管理工具) 作为包管理工具, 使用前请确保已全局安装 pnpm 安装 # 由于脚手架采用插件话设计(参考 @babel/cli)，所以将脚手架核心功能抽离至 @inventorjs/core 中，各个插件采用 peerDependencies 的方式引用，来确保 @inventorjs/core 版本的一致性
+// 安装脚手架以及脚手架核心 pnpm add @inventorjs/cli-core @inventorjs/cli-core -g 使用 # 使用内置插件 # 当前插件内置插件列表，后续可能会新增更多内置插件
+inventor-plugin-plugin: 用于快速开发 inventor 插件 inventor-plugin-app: 用于快速开发前端应用，支持多种前端应用模版 // 查看可用的插件命令 inventor -h // 查看 plugin 插件的使用方式 inventor plugin // 查看 app 插件的使用方式 inventor app 安装第三方插件 # 第三方插件强制格式为 (@scope/)inventor-plugin-[name]，由第三方人员开发，可根据功能进行安装 注意：plugin 命令默认会自动注册插件至 .">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Introduction" />
 <meta property="og:description" content="" />
@@ -18,7 +19,7 @@ pnpm add @inventorjs/core @inventorjs/cli -g 使用 # // 查看可用的插件�
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6291f6af96cdb0376782b3b703932662b128bea9e7097e6d8cac2c57732c8022.js" integrity="sha256-YpH2r5bNsDdngrO3A5MmYrEovqnnCX5tjKwsV3MsgCI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.30ebf77989f5a87d4afeb63224ff81dc736fa280dd0d445b08b3d2391e48f7e0.js" integrity="sha256-MOv3eYn1qH1K/rYyJP&#43;B3HNvooDdDURbCLPSOR5I9&#43;A=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
@@ -97,7 +98,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/plugin/" class="">Plugin[插件基础类]</a>
+    <a href="/docs/cli/cli-core/plugin/" class="">Plugin[插件基础类]</a>
   
 
         </li>
@@ -123,7 +124,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/cmd/" class="">cmd[命令处理模块]</a>
+    <a href="/docs/cli/cli-core/modules/cmd/" class="">cmd[命令处理模块]</a>
   
 
         </li>
@@ -136,7 +137,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/env/" class="">env[环境管理模块]</a>
+    <a href="/docs/cli/cli-core/modules/env/" class="">env[环境管理模块]</a>
   
 
         </li>
@@ -149,7 +150,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/fs/" class="">fs[文件处理模块]</a>
+    <a href="/docs/cli/cli-core/modules/fs/" class="">fs[文件处理模块]</a>
   
 
         </li>
@@ -162,7 +163,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/git/" class="">git[git命令模块]</a>
+    <a href="/docs/cli/cli-core/modules/git/" class="">git[git命令模块]</a>
   
 
         </li>
@@ -175,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/log/" class="">log[日志处理模块]</a>
+    <a href="/docs/cli/cli-core/modules/log/" class="">log[日志处理模块]</a>
   
 
         </li>
@@ -188,7 +189,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/pm/" class="">pm[包管理模块]</a>
+    <a href="/docs/cli/cli-core/modules/pm/" class="">pm[包管理模块]</a>
   
 
         </li>
@@ -201,7 +202,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/rc/" class="">rc[配置文件模块]</a>
+    <a href="/docs/cli/cli-core/modules/rc/" class="">rc[配置文件模块]</a>
   
 
         </li>
@@ -214,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/core/modules/util/" class="">util[通用工具模块]</a>
+    <a href="/docs/cli/cli-core/modules/util/" class="">util[通用工具模块]</a>
   
 
         </li>
@@ -237,7 +238,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/plugin-app/" class="">plugin-app[应用插件]</a>
+    <a href="/docs/cli/inventor-plugin-app/" class="">inventor-plugin-app[应用插件]</a>
   
 
         </li>
@@ -250,7 +251,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/plugin-plugin/" class="">plugin-plugin[插件管理]</a>
+    <a href="/docs/cli/inventor-plugin-plugin/" class="">inventor-plugin-plugin[插件管理]</a>
   
 
         </li>
@@ -347,6 +348,13 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <blockquote>
 <ul>
+<li>corepack 作为 node 新版本的包管理工具，用于管理(yarn, pnpm)包工具，强烈建议开启 corepack</li>
+</ul>
+</blockquote>
+<pre tabindex="0"><code>
+  corepack enable
+</code></pre><blockquote>
+<ul>
 <li>脚手架强制使用 <a href="https://pnpm.io/">pnpm</a>(当前最先进的包管理工具) 作为包管理工具, 使用前请确保已全局安装 pnpm</li>
 </ul>
 </blockquote>
@@ -355,15 +363,45 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
 </h3>
 <p>由于脚手架采用插件话设计(参考 @babel/cli)，所以将脚手架核心功能抽离至 @inventorjs/core 中，各个插件采用 peerDependencies 的方式引用，来确保 @inventorjs/core 版本的一致性</p>
-<pre tabindex="0"><code>  pnpm add @inventorjs/core @inventorjs/cli -g
+<pre tabindex="0"><code>  // 安装脚手架以及脚手架核心
+  pnpm add @inventorjs/cli-core @inventorjs/cli-core -g
 </code></pre><h3 id="使用">
   使用
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
 </h3>
-<pre tabindex="0"><code>  // 查看可用的插件命令
+<h4 id="使用内置插件">
+  使用内置插件
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e5%86%85%e7%bd%ae%e6%8f%92%e4%bb%b6">#</a>
+</h4>
+<p>当前插件内置插件列表，后续可能会新增更多内置插件</p>
+<ul>
+<li><em>inventor-plugin-plugin</em>: 用于快速开发 inventor 插件</li>
+<li><em>inventor-plugin-app</em>: 用于快速开发前端应用，支持多种前端应用模版</li>
+</ul>
+<pre tabindex="0"><code>
+  // 查看可用的插件命令
   inventor -h
-  // 初始化 inventor 插件模版
-  inventor plugin init
+
+  // 查看 plugin 插件的使用方式
+  inventor plugin
+
+  // 查看 app 插件的使用方式
+  inventor app
+</code></pre><h4 id="安装第三方插件">
+  安装第三方插件
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85%e7%ac%ac%e4%b8%89%e6%96%b9%e6%8f%92%e4%bb%b6">#</a>
+</h4>
+<p>第三方插件强制格式为 (@scope/)inventor-plugin-[name]，由第三方人员开发，可根据功能进行安装
+<em><strong>注意：plugin 命令默认会自动注册插件至 .inventorrc，如果配置文件非 json 格式，可能回注册失败，手动注册即可以</strong></em></p>
+<pre tabindex="0"><code>
+  // 自动安装第三方插件，如安装 inventor-plugin-test，默认全局安装，如需要局部安装添加 --local 参数即可安装到当前目录
+  inventor plugin add inventor-plugin-test
+
+  // 全局调用使用第三方插件
+  inventor test
+
+  // 本地调用第三方插件
+  pnpm inventor test
 </code></pre></article>
  
       

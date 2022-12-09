@@ -4,38 +4,38 @@
   <url>
     <loc>https://inventorjs.github.io/docs/cli/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/plugin/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/plugin/</loc>
   </url><url>
     <loc>https://inventorjs.github.io/categories/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/cmd/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/cmd/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/</loc>
   </url><url>
     <loc>https://inventorjs.github.io/docs/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/env/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/env/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/fs/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/fs/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/git/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/git/</loc>
   </url><url>
     <loc>https://inventorjs.github.io/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/log/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/inventor-plugin-app/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/inventor-plugin-plugin/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/plugin-app/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/log/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/plugin-plugin/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/pm/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/pm/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/rc/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/rc/</loc>
   </url><url>
     <loc>https://inventorjs.github.io/tags/</loc>
   </url><url>
-    <loc>https://inventorjs.github.io/docs/cli/core/modules/util/</loc>
+    <loc>https://inventorjs.github.io/docs/cli/cli-core/modules/util/</loc>
   </url>
 </urlset>

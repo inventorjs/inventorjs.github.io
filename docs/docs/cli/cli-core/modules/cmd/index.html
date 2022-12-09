@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" 命令行程序调用模块 # 封装 execa 调用方法，提供对返回数据 buffer 进行处理的能力
+exec(bin, args, options) # 调用命令行程序
+bin: &lt;string&gt; 执行命令行程序 args: &lt;string[]&gt; 命令行程序参数 options: &lt;Object&gt; output: &lt;Boolean&gt; 是否输出运行结果 pipeline: &lt;&lsquo;stdout&rsquo; | &lsquo;stderr&rsquo;&gt; 输出文件描述符 pipe: &lt;Function&gt; buf: &lt;Buffer&gt; 处理命令输出的 buffer ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://inventorjs.github.io/docs/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="cmd[命令处理模块]" />
+<meta property="og:description" content=" 命令行程序调用模块 # 封装 execa 调用方法，提供对返回数据 buffer 进行处理的能力
+exec(bin, args, options) # 调用命令行程序
+bin: &lt;string&gt; 执行命令行程序 args: &lt;string[]&gt; 命令行程序参数 options: &lt;Object&gt; output: &lt;Boolean&gt; 是否输出运行结果 pipeline: &lt;&lsquo;stdout&rsquo; | &lsquo;stderr&rsquo;&gt; 输出文件描述符 pipe: &lt;Function&gt; buf: &lt;Buffer&gt; 处理命令输出的 buffer " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://inventorjs.github.io/docs/cli/cli-core/modules/cmd/" /><meta property="article:section" content="docs" />
 
-<title>Docs | Inventorjs</title>
+
+
+<title>cmd[命令处理模块] | Inventorjs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.30ebf77989f5a87d4afeb63224ff81dc736fa280dd0d445b08b3d2391e48f7e0.js" integrity="sha256-MOv3eYn1qH1K/rYyJP&#43;B3HNvooDdDURbCLPSOR5I9&#43;A=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://inventorjs.github.io/docs/index.xml" title="Inventorjs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -120,7 +125,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/cli/cli-core/modules/cmd/" class="">cmd[命令处理模块]</a>
+    <a href="/docs/cli/cli-core/modules/cmd/" class="active">cmd[命令处理模块]</a>
   
 
         </li>
@@ -294,7 +299,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Docs</strong>
+  <strong>cmd[命令处理模块]</strong>
 
   <label for="toc-control">
     
@@ -308,7 +313,11 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#execbin-args-options">exec(bin, args, options)</a></li>
+  </ul>
+</nav>
 
 
 
@@ -319,7 +328,34 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"></article>
+  <article class="markdown"><h1 id="命令行程序调用模块">
+  命令行程序调用模块
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e7%a8%8b%e5%ba%8f%e8%b0%83%e7%94%a8%e6%a8%a1%e5%9d%97">#</a>
+</h1>
+<p>封装 execa 调用方法，提供对返回数据 buffer 进行处理的能力</p>
+<h2 id="execbin-args-options">
+  exec(bin, args, options)
+  <a class="anchor" href="#execbin-args-options">#</a>
+</h2>
+<p>调用命令行程序</p>
+<blockquote>
+<ul>
+<li>bin: &lt;string&gt; 执行命令行程序</li>
+<li>args: &lt;string[]&gt; 命令行程序参数</li>
+<li>options: &lt;Object&gt;
+<ul>
+<li>output: &lt;Boolean&gt; 是否输出运行结果</li>
+<li>pipeline: &lt;&lsquo;stdout&rsquo; | &lsquo;stderr&rsquo;&gt; 输出文件描述符</li>
+<li>pipe: &lt;Function&gt;
+<ul>
+<li>buf: &lt;Buffer&gt; 处理命令输出的 buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</article>
  
       
 
@@ -344,6 +380,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -354,7 +394,11 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#execbin-args-options">exec(bin, args, options)</a></li>
+  </ul>
+</nav>
 
 
  

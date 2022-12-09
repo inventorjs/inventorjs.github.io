@@ -1,5 +1,5 @@
 ---
-title: plugin-app[应用插件]
+title: inventor-plugin-app[应用插件]
 type: docs
 ---
 
